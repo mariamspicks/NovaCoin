@@ -6,16 +6,14 @@ import {Script} from "forge-std/Script.sol";
 import {console} from "forge-std/console.sol";
 
 contract AirdropScript is Script {
-    
     function run() external {
         address tokenAddress = vm.envAddress("TOKEN_ADDRESS");
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-       
-        
+
         NovaCoinAirDrop coin = NovaCoinAirDrop(tokenAddress);
-        
+
         address[] memory recipients = new address[](15);
-        
+
         recipients[0] = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
         recipients[1] = 0x70997970C51812dc3A010C7d01b50e0d17dc79C8;
         recipients[2] = 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC;
@@ -31,29 +29,26 @@ contract AirdropScript is Script {
         recipients[12] = 0x1E878A1d4e610BCC201aff3935F63D5F11D2d0DF;
         recipients[13] = 0x284A9aC11e25bE8E71A1d28C15548063996351e6;
         recipients[14] = 0x1B4473744B410827c92ad836f40A7E2596E485Bc;
-        
-        
+
         uint256[] memory amounts = new uint256[](15);
-        
+
         // Each recipient gets 1,000 tokens
         for (uint256 i = 0; i < 15; i++) {
-            amounts[i] = 1000 * 10**18;
+            amounts[i] = 1000 * 10 ** 18;
         }
-        
-        
+
         vm.startBroadcast(deployerPrivateKey);
-        
+
         console.log("Starting airdrop...");
         console.log("Token Address:", tokenAddress);
         console.log("Number of Recipients:", recipients.length);
-        console.log("Tokens per Recipient:", amounts[0] / 10**18);
-        
+        console.log("Tokens per Recipient:", amounts[0] / 10 ** 18);
+
         // Execute the airdrop
         coin.airdrop(recipients, amounts);
-        
+
         console.log("Airdrop completed successfully!");
-        
+
         vm.stopBroadcast();
     }
 }
-
