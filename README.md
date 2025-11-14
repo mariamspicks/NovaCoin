@@ -1,22 +1,22 @@
-# 🪙 NovaCoin - ERC-20 Token with Airdrop Mechanism
+# NovaCoin - ERC-20 Token with Airdrop Mechanism
 
 A custom ERC-20 token smart contract with built-in batch airdrop functionality, deployed on Ethereum Sepolia testnet.
 
-## 📋 Project Overview
+## Project Overview
 
 This project demonstrates a production-ready ERC-20 token implementation with an efficient airdrop mechanism that enables distributing tokens to multiple addresses in a single transaction, significantly reducing gas costs and complexity.
 
-## ✨ Features
+## Features
 
-- ✅ **Standard ERC-20 Implementation** - Full compliance with ERC-20 standard
-- ✅ **Batch Airdrop Functionality** - Distribute to multiple addresses in one transaction
-- ✅ **Access Control** - Owner-only airdrop execution using OpenZeppelin's Ownable
-- ✅ **Duplicate Prevention** - Tracking system to prevent duplicate claims
-- ✅ **Event Logging** - Comprehensive event emissions for all actions
-- ✅ **Edge Case Protection** - Validates inputs and handles errors gracefully
-- ✅ **Gas Optimized** - Efficient batch processing using calldata
+- **Standard ERC-20 Implementation** - Full compliance with ERC-20 standard
+- **Batch Airdrop Functionality** - Distribute to multiple addresses in one transaction
+- **Access Control** - Owner-only airdrop execution using OpenZeppelin's Ownable
+- **Duplicate Prevention** - Tracking system to prevent duplicate claims
+- **Event Logging** - Comprehensive event emissions for all actions
+- **Edge Case Protection** - Validates inputs and handles errors gracefully
+- **Gas Optimized** - Efficient batch processing using calldata
 
-## 🔧 Token Details
+## Token Details
 
 | Property | Value |
 |----------|-------|
@@ -27,9 +27,9 @@ This project demonstrates a production-ready ERC-20 token implementation with an
 | **Network** | Ethereum Sepolia Testnet |
 | **Contract Address** | `0xD07d09fF54C15073bc3b33C41727E4c70FbEe0F7` |
 
-## 🚀 Successful Deployment
+## Successful Deployment
 
-✅ **Live Airdrop Execution:**
+**Live Airdrop Execution:**
 - **Transaction Hash:** [`0x770b2f42d6ad6bfbf5a4fbf8f9701f62719d60586bf3f22a5697ad7e63a4a277`](https://sepolia.etherscan.io/tx/0x770b2f42d6ad6bfbf5a4fbf8f9701f62719d60586bf3f22a5697ad7e63a4a277)
 - **Block Number:** 9623262
 - **Recipients:** 15 addresses
@@ -37,7 +37,7 @@ This project demonstrates a production-ready ERC-20 token implementation with an
 - **Gas Used:** 737,593
 - **Total Cost:** 0.000000786596466141 ETH
 
-## 📁 Project Structure
+## Project Structure
 ```
 NovaCoin/
 ├── src/
@@ -52,7 +52,7 @@ NovaCoin/
 └── README.md
 ```
 
-## 🛠️ Smart Contract Functions
+## Smart Contract Functions
 
 ### NovaCoinAirDrop.sol
 
@@ -84,7 +84,7 @@ Distributes tokens to multiple addresses in a single transaction.
 - `allowance(address owner, address spender)`
 - `totalSupply()`
 
-## 🔒 Security Features
+## Security Features
 
 1. **Access Control**
    - Only contract owner can execute airdrops
@@ -103,11 +103,10 @@ Distributes tokens to multiple addresses in a single transaction.
 4. **Safe Math**
    - Solidity 0.8.30 built-in overflow protection
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)
-- Node.js (optional)
 - Git
 
 ### Install Foundry
@@ -140,9 +139,9 @@ SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/YOUR_INFURA_PROJECT_ID
 TOKEN_ADDRESS=YOUR_DEPLOYED_CONTRACT_ADDRESS
 ```
 
-⚠️ **Never commit your `.env` file!**
+**Never commit your `.env` file!**
 
-## 🧪 Testing
+## Testing
 
 ### Run All Tests
 ```bash
@@ -164,7 +163,7 @@ forge test --match-test test_Airdrop -vvv
 forge coverage
 ```
 
-## 📜 Deployment Scripts
+## Deployment Scripts
 
 ### 1. Deploy NovaCoinAirDrop Contract
 ```bash
@@ -187,7 +186,18 @@ forge script script/ExecuteAirDropScript.s.sol:AirdropScript \
   -vvvv
 ```
 
-## 🎯 Usage Example
+## Deployed Contracts
+
+### Sepolia Testnet
+- **NovaCoinAirDrop Contract:** `0xD07d09fF54C15073bc3b33C41727E4c70FbEe0F7`
+- **Network:** Ethereum Sepolia Testnet (Chain ID: 11155111)
+- **Deployer Address:** `0x57b8172AB4EcA52d971DCaa9850B93cd96556Fee`
+
+### Verified Transactions
+- **Deployment Transaction:** [View on Etherscan](https://sepolia.etherscan.io/address/0xD07d09fF54C15073bc3b33C41727E4c70FbEe0F7)
+- **Airdrop Transaction:** [0x770b2f42d6ad6bfbf5a4fbf8f9701f62719d60586bf3f22a5697ad7e63a4a277](https://sepolia.etherscan.io/tx/0x770b2f42d6ad6bfbf5a4fbf8f9701f62719d60586bf3f22a5697ad7e63a4a277)
+
+## Usage Example
 
 ### Solidity
 ```solidity
@@ -206,7 +216,7 @@ amounts[2] = 1000 * 10**18;
 token.airdrop(recipients, amounts);
 ```
 
-## 📊 Gas Optimization
+## Gas Optimization
 
 The airdrop function uses `calldata` instead of `memory` for array parameters, reducing gas costs:
 
@@ -216,7 +226,7 @@ The airdrop function uses `calldata` instead of `memory` for array parameters, r
 | Airdrop to 15 addresses | 737,593 |
 | Average per recipient | ~49,173 |
 
-## 🔍 Verification
+## Verification
 
 Verify contract on Etherscan:
 ```bash
@@ -229,29 +239,26 @@ forge verify-contract \
   --etherscan-api-key YOUR_ETHERSCAN_API_KEY
 ```
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
 
-## 👤 Author
+## Author
 
 **Mariam Tunwashe**
-- GitHub: [@mariiamspicks](https://github.com/mariamspicks)
+- GitHub: [@mariamspicks](https://github.com/mariamspicks)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - OpenZeppelin for secure contract libraries
 - Foundry for development framework
 - Ethereum community for support and documentation
 
-## 📞 Support
+## Support
 
 For questions or issues, please open an issue on GitHub
 
 ---
 
-⭐ If you found this project helpful, please give it a star!
+If you found this project helpful, please give it a star!
+
